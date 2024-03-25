@@ -1,8 +1,13 @@
+import Blogs from "./Pages/Blogs"
+import BookMarks from "./Pages/BookMarks"
+import Home from "./Pages/Home"
 
 function App() {
   return (
     <>
-      <h1 className='text-2xl font-extrabold'>Vite + React</h1>
+      <Home/>
+      <Blogs/>
+      <BookMarks/>
     </>
   )
 }
