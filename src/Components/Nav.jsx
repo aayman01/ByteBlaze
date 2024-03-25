@@ -1,4 +1,6 @@
 import { useEffect, useState } from "react";
+import { NavLink } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 const Nav = () => {
   const [theme, setTheme] = useState("light");
@@ -8,7 +10,7 @@ const Nav = () => {
     const localTheme = localStorage.getItem('theme')
     document.querySelector('html').setAttribute('data-theme', localTheme)
   }, [theme]);
-  
+
   const handleToogle = (e) => {
     console.log(e);
     if (e.target.checked) {
@@ -22,20 +24,20 @@ const Nav = () => {
   return (
     <div className="navbar bg-base-100 px-4 shadow-lg fixed z-10">
       <div className="flex-1">
-        <a className="btn btn-ghost text-2xl gap-0 text-secondary normal-case">
+        <Link to ='/'className="btn btn-ghost text-2xl gap-0 text-secondary normal-case">
           Byte<span className="text-primary">Blaze</span>
-        </a>
+        </Link>
       </div>
       <div className="flex-none">
         <ul className="menu menu-horizontal px-1">
           <li className="font-bold">
-            <a>Home</a>
+            <NavLink to="/">Home</NavLink>
           </li>
           <li className="font-bold text-primary">
-            <a>Blogs</a>
+            <NavLink to="/blogs">Blogs</NavLink>
           </li>
           <li className="font-bold">
-            <a>Bookmarks</a>
+            <NavLink to="/bookmarks">Bookmarks</NavLink>
           </li>
         </ul>
         <label className="cursor-pointer grid place-items-center">
