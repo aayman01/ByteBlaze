@@ -6,28 +6,30 @@ import Home from './Pages/Home.jsx'
 import Blogs from './Pages/Blogs.jsx'
 import MainLayout from './Layouts/MainLayout.jsx'
 import BookMarks from './Pages/BookMarks.jsx'
+import ErrorPage from './Components/ErrorPage.jsx'
 
 const router = createBrowserRouter([
   {
-    path:'/',
+    path: "/",
     element: <MainLayout></MainLayout>,
+    errorElement: <ErrorPage></ErrorPage>,
     children: [
       {
-        path: '/', // index: true
-        element: <Home></Home>
+        path: "/", // index: true
+        element: <Home></Home>,
       },
       {
-        path: '/blogs',
-        element: <Blogs></Blogs>
+        path: "/blogs",
+        element: <Blogs></Blogs>,
+        loader: () => fetch("https://dev.to/api/articles?per_page=20&top=7"),
       },
       {
-        path: '/bookmarks',
-        element: <BookMarks></BookMarks>
-      }
-    ]
-  }
-  
-])
+        path: "/bookmarks",
+        element: <BookMarks></BookMarks>,
+      },
+    ],
+  },
+]);
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
