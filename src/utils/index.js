@@ -1,5 +1,6 @@
 import toast from "react-hot-toast";
 
+
 export const getBlogs = () => {
   let blogs = [];
   const storedBlogs = localStorage.getItem("blogs");
